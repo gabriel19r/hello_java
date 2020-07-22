@@ -1,3 +1,5 @@
+package estrutura_matriz;
+
 import javax.swing.JOptionPane;
 
 public class estrutura_de_matrizes {
