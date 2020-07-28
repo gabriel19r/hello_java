@@ -39,7 +39,54 @@ public class Arquivo_sequencial {
 
         // - Exemplo 2
         /**/
-        
+        try{
+            String arq=Selecionando_Arquivo.caminho();
+            BufferedReader arqEntrada=new BufferedReader(new FileReader(arq));
 
+            String nome=JOptionPane.showInputDialog("Digite o nome");
+            nome=nome.toUpperCase();
+
+            String linha;
+            String endereco="";
+            String telefone="";
+
+            while((linha=arqEntrada.readLine())!=null){
+                memoria.append(linha+"\r\n");
+            }
+
+            int inicio=-1;
+            inicio=memoria.indexOf(nome);
+
+            if(inicio!=-1){
+                int ultimo=memoria.indexOf("\t",inicio);
+                nome=ler(inicio,ultimo);
+
+                int primeiro=ultimo+1;
+                ultimo=memoria.indexOf("\t",primeiro);
+
+                endereco=ler(primeiro,ultimo);
+                primeiro=ultimo+1;
+
+                int fim=memoria.indexOf("\n",primeiro);
+                telefone=ler(primeiro,fim);
+
+                Agenda agenda1=new Agenda(nome,endereco,telefone);
+
+                JOptionPane.showMessageDialog(null,"Endereço: "+agenda1.getEndereco()+"\n"+"Telefone: "+agenda1.getTelefone());
+            }else{
+                JOptionPane.showMessageDialog(null,"Não cadastrado");
+            }
+            arqEntrada.close();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Erro de leitura");
+        }
+    }
+
+    public static String ler(int p, int u){
+        String dados="";
+
+        dados=memoria.substring(p,u);
+
+        return dados;
     }
 }
