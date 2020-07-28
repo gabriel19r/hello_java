@@ -50,7 +50,7 @@ public class Arquivo_sequencial {
             String endereco="";
             String telefone="";
 
-            while((linha=arqEntrada.readLine())!=null){
+            while((linha=arqEntrada.readLine()) != null){
                 memoria.append(linha+"\r\n");
             }
 

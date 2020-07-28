@@ -30,4 +30,12 @@ public class Agenda
         return telefone;
     }
 
+    public void setEndereco(String e){
+        this.endereco=e;
+    }
+
+    public void setTelefone(String t){
+        this.telefone=t;
+    }
+
 }
