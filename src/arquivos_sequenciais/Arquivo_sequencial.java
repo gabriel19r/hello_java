@@ -4,11 +4,12 @@ import javax.swing.JOptionPane;
 import java.io.*;
 
 public class Arquivo_sequencial {
-    static StringBuffer memoria; //do exemplo 2 e 3
-    static String arq=Selecionando_Arquivo.caminho(); //do exemplo 3
+    //static StringBuffer memoria; //do exemplo 2 e 3
+    //static String arq = Selecionando_Arquivo.caminho(); //do exemplo 3
+
     public static void main(String[] args) {
         // - Exemplo 1
-        /*
+
 
         try {
             String arq = Selecionando_Arquivo.caminho();
@@ -23,19 +24,21 @@ public class Arquivo_sequencial {
 
             String telefone = JOptionPane.showInputDialog("Digite o telefone");
 
-            Agenda agenda1=new Agenda(nome,endereco,telefone);
-            saida.write(agenda1.getNome()+"\t;");
-            saida.write(agenda1.getEndereco()+"\t");
-            saida.write(agenda1.getTelefone()+"\r\n");
+            Agenda agenda1 = new Agenda(nome, endereco, telefone);
+            saida.write(agenda1.getNome() + "\t");
+            saida.write(agenda1.getEndereco() + "\t");
+            saida.write(agenda1.getTelefone() + "\r\n");
 
             saida.flush();
             saida.close();
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Erro de acesso ao arquivo");
+            JOptionPane.showMessageDialog(null, "Erro de acesso ao arquivo");
         }
+    }
+}
 
-         */
+
 
         // - Exemplo 2
         /*
@@ -91,7 +94,7 @@ public class Arquivo_sequencial {
         return dados;
     }
 
-    //*/
+
 
         // - Exemplo 3
 
@@ -172,3 +175,4 @@ public static void gravar(){
         }
     }
 }
+         */
