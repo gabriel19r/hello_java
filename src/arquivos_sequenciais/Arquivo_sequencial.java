@@ -4,8 +4,8 @@ import javax.swing.JOptionPane;
 import java.io.*;
 
 public class Arquivo_sequencial {
-    static StringBuffer memoria = new StringBuffer(); //do exemplo 2 e 3
-    //static String arq = Selecionando_Arquivo.caminho(); //do exemplo 3
+    static StringBuffer memoria = new StringBuffer();
+    static String arq = Selecionando_Arquivo.caminho();
 
     public static void main(String[] args) {
         try {
@@ -21,8 +21,7 @@ public class Arquivo_sequencial {
             String arq = Selecionando_Arquivo.caminho();
 
             // - Ler arquivo
-            BufferedReader arqentrada;
-            arqentrada=new BufferedReader(new FileReader(arq));
+            BufferedReader arqentrada=new BufferedReader(new FileReader(arq));
 
             // - Abrir o arquivo para escrita
             /*
@@ -53,6 +52,20 @@ public class Arquivo_sequencial {
                 JOptionPane.showMessageDialog(null,"Endereço: "+
                 agenda1.getEndereco()+"\n"+"Telefone: "+
                         agenda1.getTelefone());
+
+                endereco=JOptionPane.showInputDialog("Entre com o novo endereço");
+                agenda1.setEndereco(endereco.toUpperCase());
+
+                telefone=JOptionPane.showInputDialog("Entre com o novo telefone");
+                agenda1.setTelefone(telefone);
+
+                memoria.replace(inicio,fim+1,
+                        agenda1.getNome()+"\t"+
+                        agenda1.getEndereco()+"\t"+
+                        agenda1.getTelefone()+"\r\n");
+                gravar();
+                JOptionPane.showMessageDialog(null,"Atualização realizada com sucesso");
+
             }else{
                 JOptionPane.showMessageDialog(null,"Não cadastrado");
             }
@@ -84,9 +97,21 @@ public class Arquivo_sequencial {
             JOptionPane.showMessageDialog(null, "Erro de acesso ao arquivo");
         }
     }
+
     public static String ler(int primeiro, int ultimo){
         String dados="";
         dados=memoria.substring(primeiro,ultimo);
         return dados;
+    }
+
+    public static void gravar(){
+        try{
+            BufferedWriter arqsaida=new BufferedWriter(new FileWriter(arq));
+            arqsaida.write(memoria.toString());
+            arqsaida.flush();
+            arqsaida.close();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Erro de gravação");
+        }
     }
 }

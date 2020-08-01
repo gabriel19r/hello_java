@@ -36,5 +36,4 @@ public class Agenda {
     public void setTelefone(String t) {
         this.telefone = t;
     }
-
 }
