@@ -17,8 +17,7 @@ public class Arquivo_sequencial {
             int primeiro;
             int ultimo;
             int fim;
-
-            String arq = Selecionando_Arquivo.caminho();
+            int resposta;
 
             // - Ler arquivo
             BufferedReader arqentrada=new BufferedReader(new FileReader(arq));
@@ -49,6 +48,20 @@ public class Arquivo_sequencial {
 
                 Agenda agenda1=new Agenda(nome, endereco, telefone);
 
+                resposta=JOptionPane.showConfirmDialog(null,
+                        "Deseja excluir?"+"\n"+
+                                agenda1.getNome()+"\n"+
+                                agenda1.getEndereco()+"\n"+
+                                agenda1.getTelefone());
+
+                if(resposta==0){
+                    memoria.delete(inicio,fim+1);
+                    gravar();
+                    JOptionPane.showMessageDialog(null,"Atualização realizada com sucesso");
+                }
+
+                // - Para alteração do endereço e telefone
+                /*
                 JOptionPane.showMessageDialog(null,"Endereço: "+
                 agenda1.getEndereco()+"\n"+"Telefone: "+
                         agenda1.getTelefone());
@@ -65,6 +78,7 @@ public class Arquivo_sequencial {
                         agenda1.getTelefone()+"\r\n");
                 gravar();
                 JOptionPane.showMessageDialog(null,"Atualização realizada com sucesso");
+                 */
 
             }else{
                 JOptionPane.showMessageDialog(null,"Não cadastrado");
