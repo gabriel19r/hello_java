@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 import java.io.*;
 
 public class Arquivo_sequencial {
-    static StringBuffer memoria; //do exemplo 2 e 3
+    static StringBuffer memoria = new StringBuffer(); //do exemplo 2 e 3
     //static String arq = Selecionando_Arquivo.caminho(); //do exemplo 3
 
     public static void main(String[] args) {
@@ -21,7 +21,8 @@ public class Arquivo_sequencial {
             String arq = Selecionando_Arquivo.caminho();
 
             // - Ler arquivo
-            BufferedReader entrada=new BufferedReader(new FileReader(arq));
+            BufferedReader arqentrada;
+            arqentrada=new BufferedReader(new FileReader(arq));
 
             // - Abrir o arquivo para escrita
             /*
@@ -31,8 +32,8 @@ public class Arquivo_sequencial {
             nome = JOptionPane.showInputDialog("Digite o nome");
             nome = nome.toUpperCase();
 
-            while((linha=entrada.readLine())!=null){
-                memoria.append(linha);
+            while((linha=arqentrada.readLine())!=null){
+                memoria.append(linha+"\r\n");
             }
 
             inicio=memoria.indexOf(nome);
@@ -55,7 +56,7 @@ public class Arquivo_sequencial {
             }else{
                 JOptionPane.showMessageDialog(null,"Não cadastrado");
             }
-            entrada.close();
+            arqentrada.close();
 
             // - Para escrever o endereco
             /*
