@@ -1,8 +1,8 @@
-package procedimentos;
+package metodos;
 
 import javax.swing.JOptionPane;
 
-public class procedimentos {
+public class metodos {
     public static void main(String[]args){
 
         int opc;
