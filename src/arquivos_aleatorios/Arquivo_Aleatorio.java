@@ -41,14 +41,23 @@ public class Arquivo_Aleatorio {
         }
     }
 
-    public static void gravar(String dado, int tamanho)throw IOException {
-        StringBuffer buffer = new StringBuffer(dado);
-        buffer.setLength(tamanho);
-        _arquivo.writeChars(buffer.toString());
+    public static void gravar(String dado, int tamanho) {
+        try{
+            StringBuffer buffer = new StringBuffer(dado);
+            buffer.setLength(tamanho);
+            _arquivo.writeChars(buffer.toString());
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Erro ao gravar 1");
+        }
+
     }
 
-    public static void gravar(int codigo)throw IOException {
-        _arquivo.writeInt(codigo);
+    public static void gravar(int codigo) {
+        try{
+            _arquivo.writeInt(codigo);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Erro ao gravar 2");
+        }
     }
 }
 
